@@ -1,0 +1,15 @@
+<mat-selection-list #calcInputs>
+  <mat-list-option>
+    Commercial Power
+  </mat-list-option>
+  <mat-list-option>
+    Number of Machines
+  </mat-list-option>
+  <mat-list-option>
+    Something else
+  </mat-list-option>
+</mat-selection-list>
+
+<p *ngFor="let calcInput of calcInputsList.selectedOptions.selected">
+  {{ calcInput.getLabel() }}
+</p>
