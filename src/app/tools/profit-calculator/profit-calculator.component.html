@@ -1,15 +1,30 @@
-<mat-selection-list #calcInputs>
-  <mat-list-option>
-    Commercial Power
-  </mat-list-option>
-  <mat-list-option>
-    Number of Machines
-  </mat-list-option>
-  <mat-list-option>
-    Something else
-  </mat-list-option>
-</mat-selection-list>
-
-<p *ngFor="let calcInput of calcInputsList.selectedOptions.selected">
-  {{ calcInput.getLabel() }}
-</p>
+<div class="profitsCalcInputs">
+  <form #calcForm
+    (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="investment">Initial Investment</label>
+      <input type="number" name="investment" [(ngModel)]="model.investment" #investment="ngModel" [ngModelOptions]="{ updateOn: 'change' }">
+    </div>
+    <div class="form-group">  
+      <label for="startUpCosts">Start Up Costs</label>
+      <input type="number" name="startUpCosts" [(ngModel)]="model.upFrontCosts" [ngModelOptions]="{ updateOn: 'change' }">
+    </div>
+    <div class="form-group">
+      <label for="monthlyCosts">Monthly Costs</label>
+      <input type="number" name="monthlyCosts" [(ngModel)]="model.monthlyCosts" [ngModelOptions]="{ updateOn: 'change' }">
+    </div>
+    <div class="form-group">
+      <label for="pricePerMachine">Price of one Machine</label>
+      <input type="number" name="pricePerMachine" [(ngModel)]="model.pricePerMachine" [ngModelOptions]="{ updateOn: 'change' }">
+    </div>
+    <div class="form-group">
+      <label for="powerCostPerMachine">Power Costs per Machine</label>
+      <input type="number" name="powerCostPerMachine" [(ngModel)]="model.powerCostPerMachine" [ngModelOptions]="{ updateOn: 'change' }">
+    </div>
+    <div class="form-group">
+      <label for="currentNumberOfMachines">Current Machine Count</label>
+      <input type="number" name="currentNumberOfMachines" [(ngModel)]="model.currentNumberOfMachines" [ngModelOptions]="{ updateOn: 'change' }">
+    </div>
+    <button type="submit">submit</button>
+  </form>
+</div>

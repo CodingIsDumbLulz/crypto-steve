@@ -1,22 +1,21 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild } from '@angular/core';
-import { SelectionModel } from '@angular/cdk/collections';
-import { MatListOption } from '@angular/material/list';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Inputs } from '../models/inputs';
 
 @Component({
   selector: 'app-profit-calculator',
   templateUrl: './profit-calculator.component.html',
-  styleUrls: ['./profit-calculator.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Default
+  styleUrls: ['./profit-calculator.component.scss']
 })
 export class ProfitCalculatorComponent implements OnInit {
-  @ViewChild('calcInputs') calcInputsList: {
-    selectedOptions: {
-      selected: SelectionModel<MatListOption>
-    }
-  };
+
+  model = new Inputs(0,0,0,0,0,0);
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    console.log(this.model);
   }
 }
